@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4cdfc8ae-7e7f-4c7a-ab48-f29ed8bc76fa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     DPTO_CARRERA."cod_dpto" AS DPTO_CARRERA_cod_dpto,
+     DPTO_CARRERA."tipo" AS DPTO_CARRERA_tipo,
+     DPTO_CARRERA."nombre" AS DPTO_CARRERA_nombre,
+     DPTO_CARRERA."ubicacion" AS DPTO_CARRERA_ubicacion
+FROM
+     "dbo"."DPTO_CARRERA" DPTO_CARRERA]]>
+	</queryString>
+	<field name="DPTO_CARRERA_cod_dpto" class="java.lang.String"/>
+	<field name="DPTO_CARRERA_tipo" class="java.lang.String"/>
+	<field name="DPTO_CARRERA_nombre" class="java.lang.String"/>
+	<field name="DPTO_CARRERA_ubicacion" class="java.lang.String"/>
+	<group name="DPTO_CARRERA_tipo">
+		<groupExpression><![CDATA[$F{DPTO_CARRERA_tipo}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#000000" uuid="be2cefb8-b65b-4363-865c-2edc8634fc0e"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DPTO_CARRERA_tipo}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="3cb8b2ec-5011-48c3-bb0a-9af610f0c892"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="7ab6ff0d-e1e7-4188-93d1-326d766d4365"/>
+				<imageExpression><![CDATA["leaf_banner_gray.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="0657d658-77f8-4c72-bb5a-6ea928933e76"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Leaf Gray Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="117" y="46" width="157" height="22" uuid="3cb272c4-3f1d-414c-8aab-2f2ebd5eb99e"/>
+				<text><![CDATA[Leaf Gray SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="c76600a2-6fed-4ed0-8fbf-226ae2b11009"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="185" height="15" uuid="b8e5fcc8-99d2-4786-924f-679d47df4fa9"/>
+				<text><![CDATA[DPTO_CARRERA_cod_dpto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="185" y="19" width="185" height="15" uuid="5b71556d-8ad7-44d5-8b38-6bf57dd4db0b"/>
+				<text><![CDATA[DPTO_CARRERA_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="370" y="19" width="185" height="15" uuid="c73a021a-3787-4daf-bfb9-cab811830c27"/>
+				<text><![CDATA[DPTO_CARRERA_ubicacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="b6145211-e37e-4af1-a377-392d35d26530"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="185" height="15" uuid="ec7fd570-5a24-40ba-8df9-a915447107df"/>
+				<textFieldExpression><![CDATA[$F{DPTO_CARRERA_cod_dpto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="185" y="0" width="185" height="15" uuid="cba2f312-368e-4e59-ac3e-6eea6f3972cc"/>
+				<textFieldExpression><![CDATA[$F{DPTO_CARRERA_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="370" y="0" width="185" height="15" uuid="35223807-91d9-40f7-a81f-9d2a4bed8557"/>
+				<textFieldExpression><![CDATA[$F{DPTO_CARRERA_ubicacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="6802e7cf-2fb1-4e5e-8bb2-7db1afa2c742"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="309cfaf4-7e2f-4964-a365-305a7221ccad"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="a28e4da9-bdcb-49c6-93c5-f9a4abcd2a35"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="37bf39bd-f12e-4187-aef1-1343268a8f8d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
